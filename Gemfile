@@ -60,4 +60,5 @@ end
 
 gem 'devise' #Add user authentication
 gem 'figaro', '1.0' #Used to handle confidential information using environment variables
+gem 'bootstrap-sass' #Allows us to use Bootstrap CSS
 
