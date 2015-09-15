@@ -12,7 +12,12 @@ class WikisController < ApplicationController
   end
 
   def create
-    @wiki=Wiki.new(params.require(:wiki).permit(:title, :body))
+    # @wiki=Wiki.new(params.require(:wiki).permit(:title, :body))
+    # Had problems creating the new Wiki above as no user associated to a new Wiki
+    # Need to either add @wiki.user = current_user
+    # Or the solution below
+
+    @wiki = current_user.wikis.build(wiki_params)
     if @wiki.save
       flash[:notice] = "Wiki was saved."
       redirect_to @wiki
@@ -29,7 +34,7 @@ class WikisController < ApplicationController
   def update
     @wiki = Wiki.find(params[:id])
 
-    if @wiki.update_attributes(params.require(:wiki).permit(:title, :body))
+    if @wiki.update_attributes(wiki_params)
       flash[:notice] = "Wiki was updated."
       redirect_to @wiki
     else
@@ -48,5 +53,11 @@ class WikisController < ApplicationController
       flash[:error] = "There was an error deleting the topic."
       render :show
     end
+  end
+
+  private
+
+  def wiki_params
+    params.require(:wiki).permit(:title, :body)
   end
 end
