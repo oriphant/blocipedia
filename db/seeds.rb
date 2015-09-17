@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
 require 'faker'
 
 # Create Users
@@ -34,9 +35,29 @@ admin = User.new(
   name: 'Admin Man',
   email: 'admin@example.com',
   password: 'helloworld',
+  role: 'admin'
   )
 admin.skip_confirmation!
 admin.save!
+
+# Create an premium user
+premium = User.new(
+  name: 'Premium Man',
+  email: 'premium@example.com',
+  password: 'helloworld',
+  role: 'premium'
+  )
+premium.skip_confirmation!
+premium.save!
+
+# Create an regular user
+regular = User.new(
+  name: 'Regular Man',
+  email: 'regular@example.com',
+  password: 'helloworld'
+  )
+regular.skip_confirmation!
+regular.save!
 
  puts "Seed finished"
  puts "#{User.count} users created"
