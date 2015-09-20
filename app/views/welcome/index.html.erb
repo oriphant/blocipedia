@@ -1,32 +1,52 @@
 <!DOCTYPE html>
 <html>
-
-  <h2 class="text-center">Blocipedia: Social, Markdown Wikis</h2>
-  </br></br>
-
+</br>
 <div class="jumbotron text-center center-block">
-  <h3>Create and share Markdown Wikis!</h3>
-  </br>
-  <p>
-      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %>
-  </p>
+  <h1 class="text-center">Blocipedia</h1>
+  <h3 class="text-muted">Social Markdown Wikis</h3>
+  <h3 class="text-muted">Create & Share Markdown Wikis!</h3>
+  </br></br></br>
+
+  <div class="row">
+
+    <div class="col-md-6 text-center">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h2 class="panel-title"><a href="/users/sign_up">Basic Plan</a></h2>
+        </div>
+        <div class="panel-body">
+          <a href="/users/sign_up"><span class="price_text">$</span><span class="price">0</span> <span class="vertical_center">  per month</span></a>
+          <ul class="text-left list">
+            <li>Create unlimited public wikis</li>
+            <li>Collaborate with unlimited users</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="col-md-6 text-center">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h2 class="panel-title"><a href="#">Premium Plan</a></h2>
+        </div>
+        <div class="panel-body">
+          <a href="/charges/new"><span class="price_text">$</span><span class="price">2</span> <span class="vertical_center">  per month</span></a>
+          <ul class="text-left list">
+            <li>All the benefits of the basic plan</li>
+            <li>Unlimited private wikis</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+<!-- ~~~~ Test Here ~~~~ -->
+<!-- 
+http://stackoverflow.com/questions/3027149/how-do-i-create-multiple-submit-buttons-for-the-same-form-in-rails
+ --><!-- ~~~~~~~~~~~~~~~~~~~ -->
+
+
 </div>
 
-<div class="row">
-  <div class="col-md-6 text-center">
-    <h4>Create as many public wikis as you want!</h4>
-      <a href="#" class="thumbnail center-block">
-      <img src="..." alt="...">
-      </a>
-    <p>Free Plan</p>
-  </div>
-  
-  <div class="col-md-6 text-center">
-    <h4>Create private wikis</h4>
-      <a href="#" class="thumbnail center-block">
-      <img src="..." alt="...">
-      </a>
-    <p>Premium Plan</p>
-  </div>
-</div>
 </html>

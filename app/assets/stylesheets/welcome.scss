@@ -3,9 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .jumbotron { 
-width: 70%;
+width: 100%;
 }
 
-.thumbnail { 
-width: 50%;
+.price {
+font-size: 800%;
+font-weight: bold;
+}
+
+.price_text {
+font-size: 200%;
+position: relative; top: -2em; 
+}
+
+.vertical_center {
+position: relative; top: -1.75em; 
+}
+
+.list {
+font-size: 130%;
 }

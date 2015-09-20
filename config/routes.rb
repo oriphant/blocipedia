@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
   resources :wikis
+  resources :charges, only: [:new, :create, :update]
 
   get 'about' => 'welcome#about'
+
+  # ~~~~~~~~~ Really interesting ~~~~~~~~~~~~~~~
+  get 'downgrade' => 'charges#update' #Interesting construct.  Did not know you could create your own routes with a specific method.
+  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   devise_for :users
   root :to=>"welcome#index"

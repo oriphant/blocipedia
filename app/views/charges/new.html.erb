@@ -1,0 +1,26 @@
+
+<% if current_user.premium? %>
+  <h1 class="text-primary">Cancelation Confirmation</h1>
+    <h4>Please confirm you really would like to cancel.  You will miss out on the following benefits.</h4>
+    <ul>
+      <li>Create unlimited public wikis</li>
+      <li>Collaborate with unlimited users</li>
+    </ul>
+    <div>
+      <%= link_to "Confirm", downgrade_path, class: 'btn btn-info'%>
+    </div>
+
+<%else%>
+  <%= form_tag charges_path do %>
+    
+    <h4>Click the button!</h4>
+    <script 
+      class='stripe-button' 
+      src="https://checkout.stripe.com/checkout.js" 
+      data-key="<%=@stripe_btn_data[:key] %>" 
+      data-amount=<%= @stripe_btn_data[:amount]%> 
+      data-description="<%= @stripe_btn_data[:description] %>" >
+    </script>
+
+  <% end %>
+<%end%>

@@ -14,7 +14,8 @@ users = User.all
   user = User.new(
     name: Faker::Name.name,
     email: Faker::Internet.email,
-    password: Faker::Lorem.characters(10)
+    password: Faker::Lorem.characters(10), 
+    role: 'basic'
     )
     user.skip_confirmation!
     user.save!
@@ -54,7 +55,8 @@ premium.save!
 regular = User.new(
   name: 'Regular Man',
   email: 'regular@example.com',
-  password: 'helloworld'
+  password: 'helloworld',
+  role: 'basic'
   )
 regular.skip_confirmation!
 regular.save!

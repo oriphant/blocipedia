@@ -22,8 +22,15 @@
             <%= link_to "Sign In", new_user_session_path %> or
             <%= link_to "Sign Up", new_user_registration_path %>
           <% end %>
-        </div>
 
+          <%if current_user %>
+            <% if current_user.premium? %>
+              | <span class="badge">Premium Member</span>
+            <% elsif current_user.admin? %>
+              | <span class="badge">Administrator</span>
+            <%end%>
+          <%end%>
+        </div>
     </ul>
 
     <% if flash[:notice] %>
