@@ -29,6 +29,7 @@ class User < ActiveRecord::Base
 
   def downgrade_acct
     self.update_attributes(role: 'basic')
+    self.wikis.where(private: true).update_all(private: false)
   end
 
   private

@@ -1,16 +1,3 @@
-<h1>New Wiki</h1>
-
-<div class="row">
-  <div class="col-md-4">
-    <p>Guidelines for Wikis</p>
-    <ul>
-      <li>Make sure you enter a title</li>
-      <li>Make sure your Wiki is factually correct</li>
-    </ul>
-  </div>
-
-  <div class="col-md-8">
-    
 <%= form_for @wiki do |f| %>
   <div class="form-group">
     <%= f.label :title %>
@@ -22,7 +9,7 @@
     <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter Wiki body" %>
   </div>
   
-  <% if current_user.role == 'admin' || current_user.role == 'premium'%>
+  <% if current_user.role == 'admin' || (current_user.role == 'premium' && current_user.id == wiki.user_id)%>
   <div class="form-group pull-right text-danger">
     <%= f.label :private, class: 'checkbox' do %>
     <%= f.check_box :private %> Private Wiki
@@ -36,5 +23,4 @@
 
 <%end%>
 
-  </div>
-</div>
+

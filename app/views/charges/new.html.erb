@@ -6,6 +6,7 @@
       <li>Create unlimited public wikis</li>
       <li>Collaborate with unlimited users</li>
     </ul>
+    <p>Cancelling your premium membership will also result in your Private Wikis being converted to Public Wikis.</p>
     <div>
       <%= link_to "Confirm", downgrade_path, class: 'btn btn-info'%>
     </div>
@@ -13,7 +14,8 @@
 <%else%>
   <%= form_tag charges_path do %>
     
-    <h4>Click the button!</h4>
+    <h4>Payment Confirmation</h4>
+    <p>Please click the button below to enter payment information and complete the upgrade to your premium membership"</p>
     <script 
       class='stripe-button' 
       src="https://checkout.stripe.com/checkout.js" 
