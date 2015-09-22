@@ -66,4 +66,5 @@ gem 'figaro', '1.0' #Used to handle confidential information using environment v
 gem 'bootstrap-sass' #Allows us to use Bootstrap CSS
 gem 'pundit'
 gem 'stripe'
+gem 'redcarpet'
 
