@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   has_many :wikis
+  has_many :collaborations
 
   #Use this to set a default role 
   #- http://stackoverflow.com/questions/995593/what-does-or-equals-mean-in-ruby
@@ -30,6 +31,15 @@ class User < ActiveRecord::Base
   def downgrade_acct
     self.update_attributes(role: 'basic')
     self.wikis.where(private: true).update_all(private: false)
+  end
+
+  def collaborations
+    Collaboration.where(user_id: id)
+  end
+
+  def wikis
+    # Wiki.where(id: collaborations.pluck(:wiki_id))
+    collaborations.wikis
   end
 
   private

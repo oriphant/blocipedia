@@ -10,5 +10,11 @@
   </div>
   <div class="col-md-8">
     <%= render partial: 'form', locals:{wiki: @wiki} %>
-  </div>
+  </div>  
 </div>
+
+
+
+    <% @collaborations.each do |c| %>
+      <% if c.user_id == @wiki.user_id %><p><%= User.name.c.user_id %></p><%end%>
+    <%end%>

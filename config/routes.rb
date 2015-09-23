@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :wikis
   resources :charges, only: [:new, :create, :update]
+  resources :collaborations, only: [:create, :destroy]
 
   get 'about' => 'welcome#about'
 
