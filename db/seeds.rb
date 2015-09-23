@@ -10,12 +10,13 @@ require 'faker'
 
 # Create Users
 users = User.all
+roles = ['basic', 'premium', 'admin']
 10.times do
   user = User.new(
     name: Faker::Name.name,
     email: Faker::Internet.email,
-    password: Faker::Lorem.characters(10), 
-    role: 'basic'
+    password: Faker::Lorem.characters(10),
+    role: roles.sample
     )
     user.skip_confirmation!
     user.save!

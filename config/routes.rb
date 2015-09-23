@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   get 'downgrade' => 'charges#update' #Interesting construct.  Did not know you could create your own routes with a specific method.
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   root :to=>"welcome#index"
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
