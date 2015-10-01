@@ -1,3 +1,28 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer          not null, primary key
+#  name                   :string
+#  email                  :string           default(""), not null
+#  encrypted_password     :string           default(""), not null
+#  reset_password_token   :string
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer          default(0), not null
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :string
+#  last_sign_in_ip        :string
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  role                   :string
+#
+
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -20,6 +45,10 @@ class User < ActiveRecord::Base
     role == 'premium'
   end
 
+  def signed_up_as_premium?
+    role == 'signed_up_as_premium'
+  end
+
   def basic?
     role == 'basic'
   end
@@ -33,14 +62,6 @@ class User < ActiveRecord::Base
     self.wikis.where(private: true).update_all(private: false)
   end
 
-  def collaborations
-    Collaboration.where(user_id: id)
-  end
-
-  def wikis
-    # Wiki.where(id: collaborations.pluck(:wiki_id))
-    collaborations.wikis
-  end
 
   private
   def set_default_role

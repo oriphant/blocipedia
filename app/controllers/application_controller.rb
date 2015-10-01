@@ -12,7 +12,15 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     puts "here are the cookies"
     puts cookies
-    new_charge_path
+    if current_user.role == "premium"
+      wikis_path
+    else
+      if cookies[:sign_up] == "premium"
+        new_charge_path
+      else
+        wikis_path
+      end
+    end
   end
 
   protected

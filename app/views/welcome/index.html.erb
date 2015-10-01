@@ -31,11 +31,13 @@
           <h2 class="panel-title"><a href="#">Premium Plan</a></h2>
         </div>
         <div class="panel-body">
+
           <% if current_user %>
-            <a href="/charges/new">
+            <a href="/wikis">
           <% else %>
-            <a href="JavaScript:void(0);" id="sign_up_premium">
+            <a href="/users/sign_up?premium=true">
           <% end %>
+          
           <span class="price_text">$</span><span class="price">2</span> <span class="vertical_center">  per month</span></a>
           <ul class="text-left list">
             <li>All the benefits of the basic plan</li>

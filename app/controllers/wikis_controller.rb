@@ -34,7 +34,9 @@ class WikisController < ApplicationController
 
   def edit
     @wiki = Wiki.find(params[:id])
-    @collaborations = Collaboration.all
+    @collaborations = @wiki.collaborations
+    @collaboration = Collaboration.new
+    @users = User.all.to_a.reject!{|x| @collaborations.users.include?(x) || @wiki.user == x}
     authorize @wiki
   end
 
