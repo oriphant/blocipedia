@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # ~~~~~~~~~ Really interesting ~~~~~~~~~~~~~~~
   get 'downgrade' => 'charges#update' #Interesting construct.  Did not know you could create your own routes with a specific method.
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+  
   devise_for :users, controllers: { registrations: "registrations" }
   root :to=>"welcome#index"
 

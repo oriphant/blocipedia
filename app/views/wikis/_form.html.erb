@@ -1,10 +1,21 @@
+
+<script src="epiceditor.min.js"></script>
+
+<body>
+  <div id="epiceditor"></div>
+</body>
+<script type="text/javascript">
+  var editor = new EpicEditor().load();
+</script>
+
+
 <%= form_for @wiki do |f| %>
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, autofocus: true, class: 'form-control', placeholder: "Enter Wiki title" %>
   </div>
   
-  <div class="form-group">
+  <div class="form-group" id="epiceditor">
     <%= f.label :body %>
     <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter Wiki body" %>
   </div>
@@ -22,5 +33,49 @@
   </div>
 
 <%end%>
+
+<!-- ~~~~~~~~~~~ -->
+<div id="epiceditor"> <textarea name="content" id="id_content"></textarea> </div>
+<!-- ~~~~~~~~~~~ -->
+<div id="container">
+  <iframe id="epiceditor-instance-id">
+    <html>
+      <head>
+        <link type="text/css" id="" rel="stylesheet" href="epiceditor/themes/base/epiceditor.css" media="screen">
+      </head>
+      <body>
+        <div id="epiceditor-wrapper">
+          <iframe id="epiceditor-editor-frame">
+            <html>
+              <head>
+                <link type="text/css" rel="stylesheet" href="epiceditor/themes/editor/epic-dark.css" media="screen">
+              </head>
+              <body contenteditable="true">
+                <!-- raw content -->
+              </body>
+            </html>
+          </iframe>
+          <iframe id="epiceditor-previewer-frame">
+            <html>
+              <head>
+                <link type="text/css" rel="stylesheet" href="epiceditor/themes/preview/github.css" media="screen">
+              </head>
+              <body>
+                <div id="epiceditor-preview">
+                  <!-- rendered html -->
+                </div>
+              </body>
+            </html>
+          </iframe>
+          <div id="epiceditor-utilbar">
+            <span title="Toggle Preview Mode" class="epiceditor-toggle-btn epiceditor-toggle-preview-btn"></span>
+            <span title="Enter Fullscreen" class="epiceditor-fullscreen-btn"></span>
+          </div>
+        </div>
+      </body>
+    </html>
+  </iframe>
+</div>
+
 
 

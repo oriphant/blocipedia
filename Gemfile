@@ -68,3 +68,5 @@ gem 'bootstrap-sass', '~> 3.3.5' #Allows us to use Bootstrap CSS
 gem 'pundit'
 gem 'stripe'
 gem 'redcarpet'
+gem 'epic-editor-rails'
+
