@@ -2,7 +2,7 @@ class ChargesController < ApplicationController
 
 class Amount
   def self.default
-    1000
+    200
   end
 end
 
