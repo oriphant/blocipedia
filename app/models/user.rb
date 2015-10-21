@@ -65,7 +65,11 @@ class User < ActiveRecord::Base
 
   private
   def set_default_role
-    self.role||= 'basic'
+
+    if self.role.blank?
+      self.role = 'basic'
+    end
+    
   end
 
 end

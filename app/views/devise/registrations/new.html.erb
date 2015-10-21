@@ -6,7 +6,7 @@
       <%= devise_error_messages! %>
 
       <!-- ~~~~~ This part really important to track if premium or not ~~~~~~~ -->
-      <%= f.hidden_field :role, value: params[:premium] ? "signed_up_as_premium" : "basic" %>
+      <%= f.hidden_field :role, value: params[:premium] ? "signed_up_as_premium" : nil %>
       <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
       
       <div class="form-group">
